@@ -1,6 +1,7 @@
 {
   "name": "lambda-cdk-starter",
   "version": "0.1.0",
+  "author": "Eetu Eskelinen",
   "bin": {
     "lambda-cdk-starter": "bin/lambda-cdk-starter.js"
   },
