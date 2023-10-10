@@ -1,4 +1,4 @@
-# lambda-cdk-starter
+# lambda-layer-cdk-starter
 
 This is a minimal starter project for developing AWS Lambdas and Lambda Layers using CDK and TypeScript.
 
@@ -19,3 +19,7 @@ The `cdk.json` file tells the CDK Toolkit how to execute your app.
 - `cdk deploy` deploy this stack to your default AWS account/region
 - `cdk diff` compare deployed stack with current state
 - `cdk synth` emits the synthesized CloudFormation template
+
+## Testing locally with SAM
+
+The Lambda functions can be invoked locally using SAM.
