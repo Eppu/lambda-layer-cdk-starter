@@ -18,9 +18,16 @@ export const handler = async (event: any) => {
 
   const body = JSON.parse(event.body);
 
+  if (!body.text || body.text === undefined) {
+    return {
+      statusCode: 400,
+      body: 'No text supplied',
+    };
+  }
+
   const response = {
     statusCode: 200,
-    body: getFirstLetter(body),
+    body: getFirstLetter(body.text),
   };
 
   return response;

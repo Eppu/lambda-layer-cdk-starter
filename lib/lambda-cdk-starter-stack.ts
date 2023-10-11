@@ -18,6 +18,7 @@ export class LambdaCdkStarterStack extends cdk.Stack {
       code: lambda.Code.fromAsset('src/lambda/letter'),
       handler: 'index.handler',
       layers: [utilsLayer],
+      memorySize: 128,
     });
 
     const letterFunctionUrl = letterFunction.addFunctionUrl({
