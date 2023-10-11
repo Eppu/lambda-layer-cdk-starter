@@ -1,6 +1,6 @@
 # lambda-layer-cdk-starter
 
-This is a minimal starter project for developing AWS Lambdas and Lambda Layers using CDK and TypeScript.
+This is a minimal starter project for developing AWS Lambdas that use Lambda Layers using CDK and TypeScript.
 
 The project includes:
 
