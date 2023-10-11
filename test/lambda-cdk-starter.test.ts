@@ -1,17 +1,34 @@
-// import * as cdk from 'aws-cdk-lib';
-// import { Template } from 'aws-cdk-lib/assertions';
-// import * as LambdaCdkStarter from '../lib/lambda-cdk-starter-stack';
+import * as cdk from 'aws-cdk-lib';
+import { Template } from 'aws-cdk-lib/assertions';
+import * as LambdaCdkStarter from '../lib/lambda-cdk-starter-stack';
 
-// example test. To run these tests, uncomment this file along with the
-// example resource in lib/lambda-cdk-starter-stack.ts
-test('SQS Queue Created', () => {
-//   const app = new cdk.App();
-//     // WHEN
-//   const stack = new LambdaCdkStarter.LambdaCdkStarterStack(app, 'MyTestStack');
-//     // THEN
-//   const template = Template.fromStack(stack);
+test('Lambda function created', () => {
+  const app = new cdk.App();
+  // WHEN
+  const stack = new LambdaCdkStarter.LambdaCdkStarterStack(
+    app,
+    'LambdaCdkStarterStack'
+  );
+  // THEN
+  const template = Template.fromStack(stack);
 
-//   template.hasResourceProperties('AWS::SQS::Queue', {
-//     VisibilityTimeout: 300
-//   });
+  template.hasResourceProperties('AWS::Lambda::Function', {
+    Handler: 'index.handler',
+    Runtime: 'nodejs18.x',
+  });
+});
+
+test('Lambda layer created', () => {
+  const app = new cdk.App();
+  // WHEN
+  const stack = new LambdaCdkStarter.LambdaCdkStarterStack(
+    app,
+    'LambdaCdkStarterStack'
+  );
+  // THEN
+  const template = Template.fromStack(stack);
+
+  template.hasResourceProperties('AWS::Lambda::LayerVersion', {
+    CompatibleRuntimes: ['nodejs18.x'],
+  });
 });
