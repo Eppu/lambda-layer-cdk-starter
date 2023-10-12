@@ -48,3 +48,22 @@ curl -X POST -H "Content-Type: application/json" -d '{
 ```
 
 The request body mimics the event object that is passed to the Lambda function when it is invoked by AWS.
+
+
+## Deployment
+
+Before you deploy the site, make sure you have a `.env` file set up with information corresponding to your environment. You should also set up access keys in your local environment.
+
+To deploy, first build the app and synthesize the Cloudformation template
+```bash
+npm run build
+cdk synth
+```
+After that, you can make sure your diff looks correct by running `cdk diff`.
+
+If everything looks good, you can then deploy your app with `cdk deploy`.
+
+The output of the deploy command should also output the real Lambda Function URLs, that you can then call from wherever you require.
+
+
+
